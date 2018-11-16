@@ -52,4 +52,6 @@ pip install Flask Pillow tensorflow keras
 
 ## Running the API
 Run the [api.py](/api.py) file to start the API server.  
-`python api.py`
+```
+python api.py
+```
