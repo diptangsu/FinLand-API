@@ -1,5 +1,5 @@
 # FinLand-API
-API for [FinLand android app](https://github.com/morninigstar/FinLand) made using Flask. HackerEarth BTS Hackathon
+API for [FinLand android app](https://github.com/morninigstar/FinLand) made using [Flask](http://flask.pocoo.org/). HackerEarth [BTS Hackathon](https://www.hackerearth.com/sprints/bts-global-hackathon-asia/)
 
 
 # Setup
@@ -51,6 +51,29 @@ Run the [api.py](/api.py) file to start the API server.
 ```
 python api.py
 ```
+
+## API Response Exmples
+On success
+```json
+{
+"land-type": "Herbaceous Vegetation",
+"probability": "100.0 %",
+"status": "success",
+"status-code": 1,
+"time-taken": 1.6259400844573975
+}
+```
+On failure
+```json
+{
+"land-type": null,
+"probability": null,
+"status": "failure",
+"status-code": 0,
+"time-taken": -1
+}
+```
+
 
 ## Team c_of_pythons
 1. [Diptangsu Goswami](https://github.com/diptangsu)
