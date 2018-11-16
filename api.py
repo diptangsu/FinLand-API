@@ -49,6 +49,26 @@ def load_model_file():
     loaded_model = load_model('trained-model/land_predict.h5')
 
 
+def resize_image(img, image_path):
+    basewidth = 64
+    width, height = img.size
+
+    min_ = min(img.size)
+    v = min_ // 64
+    dimens = 64 * v
+
+    h = (height - dimens) // 2
+    w = (width - dimens) // 2
+
+    cropped_img = img.crop((w, h, dimens + w, dimens + h))
+
+    wpercent = (basewidth / float(cropped_img.size[0]))
+    hsize = int((float(cropped_img.size[1]) * float(wpercent)))
+    cropped_img = cropped_img.resize((basewidth, hsize), PIL.Image.ANTIALIAS)
+    
+    cropped_img.save(image_path)
+
+
 def get_prediction(image_path):
     global loaded_model
 
@@ -56,8 +76,10 @@ def get_prediction(image_path):
     image_array = np.array(PIL_image)
 
     if image_array.shape != (64, 64, 3):
-        # resize somehow
-        pass
+        resize_image(PIL_image, image_path)
+        PIL_image = PIL.Image.open(image_path)
+        image_array = np.array(PIL_image)
+        
     image_dims = np.expand_dims(image_array, axis=0)
     
     prediction = None
@@ -65,6 +87,7 @@ def get_prediction(image_path):
         try:
             prediction = loaded_model.predict(image_dims)
         except:
+            print('Exception')
             return None
 
     index = prediction[0].argmax()
