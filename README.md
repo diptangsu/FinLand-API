@@ -1,5 +1,5 @@
 # FinLand-API
-API for FinLand android app made using Flask. HackerEarth BTS Hackathon
+API for [FinLand android app](https://github.com/morninigstar/FinLand) made using Flask. HackerEarth BTS Hackathon
 
 
 # Setup
@@ -51,3 +51,9 @@ Run the [api.py](/api.py) file to start the API server.
 ```
 python api.py
 ```
+
+## Team c_of_pythons
+1. [Diptangsu Goswami](https://github.com/diptangsu)
+2. [Tanumoy Nandi](https://github.com/tmoynandy)
+3. [Sujoy Dutta](https://github.com/Sujoydatta26)
+4. [Koustav Chanda](https://github.com/KoustavCode)
