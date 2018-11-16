@@ -127,6 +127,11 @@ def upload():
     return jsonify(response)
  
 
+@app.route('/')
+def index():
+    return 'Server Running'
+
+
 if __name__ == '__main__':
     load_model_file()
     app.run(debug=True, host='0.0.0.0')
