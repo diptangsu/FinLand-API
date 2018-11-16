@@ -56,21 +56,21 @@ python api.py
 On success
 ```json
 {
-	"land-type": "Herbaceous Vegetation",
-	"probability": "100.0 %",
-	"status": "success",
-	"status-code": 1,
-"time-taken": 1.6259400844573975
+  "land-type": "Herbaceous Vegetation",
+   "probability": "100.0 %",
+  "status": "success",
+  "status-code": 1,
+  "time-taken": 1.6259400844573975
 }
 ```
 On failure
 ```json
 {
-	"land-type": null,
-	"probability": null,
-	"status": "failure",
-	"status-code": 0,
-	"time-taken": -1
+  "land-type": null,
+  "probability": null,
+  "status": "failure",
+  "status-code": 0,
+  "time-taken": -1
 }
 ```
 
