@@ -14,7 +14,7 @@ $ virtualenv -p python3 venv
 This will create a virtual environment named `venv` with `python3` as its interpreter.
 
 ## Windows
-If you have multiple versions of python installed and added to `PATH` follow the following steps.  
+If you have multiple versions of python installed and added to `PATH`, find out the path for `python3.6`.  
 ```cmd
 > where python
 C:\Python27\python.exe
