@@ -45,10 +45,6 @@ You can either install requirements from the [requirements.txt](/requirements.tx
 ```
 pip install -r requirements.txt
 ```
-or manuallly using
-```
-pip install Flask Pillow tensorflow keras
-```
 
 ## Running the API
 Run the [api.py](/api.py) file to start the API server.  
