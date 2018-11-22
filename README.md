@@ -57,7 +57,7 @@ On success
 ```json
 {
   "land-type": "Herbaceous Vegetation",
-  "probability": "100.0 %",
+  "probability": 79.46,
   "status": "success",
   "status-code": 1,
   "time-taken": 1.6259400844573975
