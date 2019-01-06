@@ -4,6 +4,7 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 from flask import render_template
+from flask import g
 
 import keras
 from keras import backend as k
@@ -22,8 +23,6 @@ app = Flask(__name__)
 UPLOAD_FOLDER = os.path.basename('uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-loaded_model = None
-graph = None
 
 TYPES = {
     0: 'Sea Lake',
@@ -43,10 +42,11 @@ STATUS = {
     1: 'success',
 }
 
+
+@app.before_first_request
 def load_model_file():
-    global loaded_model, graph
-    graph = tf.get_default_graph()
-    loaded_model = load_model('trained-model/land_predict.h5')
+    g.graph = tf.get_default_graph()
+    g.loaded_model = load_model('trained-model/land_predict.h5')
 
 
 def resize_image(img, image_path):
@@ -70,8 +70,6 @@ def resize_image(img, image_path):
 
 
 def get_prediction(image_path):
-    global loaded_model
-
     PIL_image = PIL.Image.open(image_path)
     image_array = np.array(PIL_image)
 
@@ -83,9 +81,9 @@ def get_prediction(image_path):
     image_dims = np.expand_dims(image_array, axis=0)
     
     prediction = None
-    with graph.as_default():
+    with g.graph.as_default():
         try:
-            prediction = loaded_model.predict(image_dims)
+            prediction = g.loaded_model.predict(image_dims)
         except:
             print('Exception')
             return None
@@ -148,7 +146,7 @@ def upload():
 
     print(response)
     return jsonify(response)
- 
+
 
 @app.route('/')
 def index():
@@ -156,5 +154,4 @@ def index():
 
 
 if __name__ == '__main__':
-    load_model_file()
-    app.run(debug=True, host='0.0.0.0', port=80)
+    app.run(debug=True, host='0.0.0.0')
