@@ -54,7 +54,7 @@ python api.py
 
 ## API Response Exmples
 On success
-```json
+```javascript
 {
   land-type: "Herbaceous Vegetation",
   probability: 79.46,
@@ -64,7 +64,7 @@ On success
 }
 ```
 On failure
-```json
+```javascript
 {
   land-type: null,
   probability: null,
