@@ -1,6 +1,8 @@
 # FinLand-API
 API for [FinLand android app](https://github.com/morninigstar/FinLand) made using [Flask](http://flask.pocoo.org/). HackerEarth [BTS Hackathon](https://www.hackerearth.com/sprints/bts-global-hackathon-asia/)
 
+The entire project is [here](https://github.com/tmoynandy/FinLand-BTS18).
+
 
 # Setup
 Make sure you have `python3.6` installed in your machine before you continue. For windows users, the path to `python3.6` must be added to the system environment variable `PATH`.  
